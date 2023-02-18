@@ -1,0 +1,30 @@
+c = int(input())
+score = []
+result = []
+
+for i in range(0, c):
+    score.append(list(map(int, input().split())))
+
+#평균 구하는 식
+for i in range(len(score)):
+    sum = 0
+    for j in range(len(score[i])):
+        sum += score[i][j]
+    average = (sum - score[i][0]) / score[i][0]
+    result.append(average)
+
+#만약 평균보다 점수가 높으면 높은 것의 count를 센 다음 count를 전체로 나누고 거기에 100을 곱하면 비율이 나옴
+for i in range(len(score)):
+    count = 0
+    per = 0
+    for j in range(len(score[i])):
+        if result[i] < score[i][j]: #해당 수가 평균보다 높으면
+            count += 1
+    per = count/score[i][0] * 100
+    print(f'{per:.3f}%')
+
+
+
+
+
+
